@@ -13,7 +13,7 @@ class gogs::repo::gogs_apt(
     repos    => 'pkgr',
     key      => {
       'id'     => 'BD33EEB8',
-      'server' => 'https://deb.packager.io/key'
+      'server' => 'https://deb.packager.io'
     },
     include  => { 'src' => false },
     require  => [
