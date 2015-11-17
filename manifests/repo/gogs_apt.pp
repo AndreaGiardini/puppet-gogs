@@ -12,7 +12,7 @@ class gogs::repo::gogs_apt(
     release  => $::lsbdistcodename,
     repos    => 'pkgr',
     key      => {
-      'id'     => 'BD33EEB8',
+      'id'     => '6257DF9972462F57A20FFB2AB6D583CCBD33EEB8',
       'server' => 'https://deb.packager.io'
     },
     include  => { 'src' => false },
