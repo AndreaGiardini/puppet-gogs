@@ -7,14 +7,13 @@ class gogs::repo::gogs_apt(
   ensure_packages(['apt-transport-https'])
 
   apt::source { 'deb.packager.io-gogs':
-    comment     => 'This is the Gogs package repository on packager.io',
-    location    => 'https://deb.packager.io/gh/pkgr/gogs',
-    release     => $::lsbdistcodename,
-    repos       => 'pkgr',
-    key         => 'BD33EEB8',
-    key_source  => 'https://deb.packager.io/key',
-    include_src => false,
-    require     => [
+    comment  => 'This is the Gogs package repository on packager.io',
+    location => 'https://deb.packager.io/gh/pkgr/gogs',
+    release  => $::lsbdistcodename,
+    repos    => 'pkgr',
+    key      => { 'source' => 'https://deb.packager.io/key' },
+    include  => { 'src' => false },
+    require  => [
       Package['apt-transport-https']
     ]
   }
