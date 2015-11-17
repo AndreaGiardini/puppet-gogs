@@ -11,8 +11,10 @@ class gogs::repo::gogs_apt(
     location => 'https://deb.packager.io/gh/pkgr/gogs',
     release  => $::lsbdistcodename,
     repos    => 'pkgr',
-    key      => 'BD33EEB8',
-    source   => 'https://deb.packager.io/key',
+    key      => {
+      'id'     => 'BD33EEB8',
+      'server' => 'https://deb.packager.io/key'
+    },
     include  => { 'src' => false },
     require  => [
       Package['apt-transport-https']
